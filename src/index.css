@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+#root {
+  @apply w-full h-screen flex flex-col items-center py-12 bg-[url('../src/assets/numeros.jpg')] bg-no-repeat bg-cover;
+}
