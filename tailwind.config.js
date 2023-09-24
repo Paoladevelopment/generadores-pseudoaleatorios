@@ -5,6 +5,7 @@ export default {
     extend: {
       height: {
         '9/10': '90%',
+        '7/10': '70%',
         '1/10': '10%',
       },
       width: {
