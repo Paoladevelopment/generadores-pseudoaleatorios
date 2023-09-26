@@ -1,37 +1,45 @@
-import "./Table.css";
+import PropTypes from 'prop-types';
 
-export const Table = ({ tableName, configuration, testGenerator }) => {
+import './Table.css';
+
+export const Table = ({ tableCols, tableRows }) => {
   return (
-    <section className="">
-      <table className="table-fixed min-w-full divide-y overflow-y-auto">
-        <caption>
-          <h2 className="my-4">{tableName}</h2>
-        </caption>
-        <thead className="bg-red-500">
+    <section className='h-[21.25rem] overflow-y-auto mb-4'>
+      <table className='table-fixed min-w-full divide-y'>
+        <thead className='bg-sky-600'>
           <tr>
-            {configuration &&
-              configuration.map((tableColumn, key) => (
+            {tableCols &&
+              tableCols.map((tableColumn, key) => (
                 <th
                   key={key}
-                  className="py-3 px-6 text-2xs text-white font-medium tracking-wider text-left"
+                  className='py-3 px-6 text-2xs text-white font-medium tracking-wider'
                 >
-                  {tableColumn.name}
+                  {tableColumn}
                 </th>
               ))}
           </tr>
         </thead>
-        <tbody className="flex flex-col hover:bg-gray-100 dark:hover:bg-gray-700">
-          {configuration &&
-            configuration.map((tableColumn, key) => (
-              <tr key={key}>
-                {tableColumn.values &&
-                  tableColumn.values.map((value, key) => (
-                    <td key={key} className="">{value}</td>
-                  ))}
+        <tbody className='bg-gray-100'>
+          {tableRows &&
+            tableRows.map((rowColumn, key) => (
+              <tr key={key} className='border-b dark:border-neutral-500'>
+                {rowColumn.map((data, key) => (
+                  <td
+                    key={key}
+                    className='py-3 px-6 text-2xs font-medium tracking-wider text-center'
+                  >
+                    {data}
+                  </td>
+                ))}
               </tr>
             ))}
         </tbody>
       </table>
     </section>
   );
+};
+
+Table.propTypes = {
+  tableCols: PropTypes.arrayOf(PropTypes.string).isRequired,
+  tableRows: PropTypes.array.isRequired,
 };
