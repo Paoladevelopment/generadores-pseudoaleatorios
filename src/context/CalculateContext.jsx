@@ -18,7 +18,7 @@ export const CalculateProvider = ({ children }) => {
   const [currentMethod, setCurrentMethod] = useState("");
   const [currentMethodResult, setCurrentMethodResult] = useState(initialSol);
   const [currentValues, setCurrentValues] = useState(initialData);
-  window.scrollTo(0, 0);
+  const [selectedTests, setSelectedTests] = useState([]);
 
   const values = useMemo(
     () => ({
@@ -27,7 +27,9 @@ export const CalculateProvider = ({ children }) => {
       currentMethodResult,
       setCurrentMethodResult,
       currentValues,
-      setCurrentValues
+      setCurrentValues,
+      selectedTests,
+      setSelectedTests
     }),
     [
       currentMethod,
@@ -35,7 +37,9 @@ export const CalculateProvider = ({ children }) => {
       currentMethodResult,
       setCurrentMethodResult,
       currentValues,
-      setCurrentValues
+      setCurrentValues,
+      selectedTests,
+      setSelectedTests
     ]
   );
 
