@@ -38,11 +38,8 @@ const LCG_nDatos = (x0, a, c, m, n) => {
   };
 };
 
-export const LCG = (x0, a, c, m, n = 0) => {
-  if (x0 === 0) return { error: 'Se debe ingresar una semilla mayor a 0' };
+export const generador = (x0, a, c, m, n = 0) => {
   if (a === 0) return { error: 'Se debe ingresar un valor de a mayor a 0' };
-  if (x0 === 0 && a === 0)
-    return { error: 'Se debe ingresar un valor de a y una semilla mayor a 0' };
   if (n === 0) return LCG_not_nDatos(x0, a, c, m);
   return LCG_nDatos(x0, a, c, m, n);
 };

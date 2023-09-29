@@ -5,7 +5,7 @@ import { Table } from '../../components/Table/Table';
 import { rowsGeneration } from '../../helpers/formatTable';
 import { Pruebas } from '../../components/Pruebas/Pruebas';
 
-export const LCG = () => {
+export const Generador = () => {
   const { currentMethodResult } = useContext(CalculateContext);
   console.log(currentMethodResult);
   const { xn, rn, periodo } = currentMethodResult;
@@ -20,11 +20,7 @@ export const LCG = () => {
         <p className='text-xl text-center mb-4'>
           <span className='text-sky-500 font-bold '>Periodo:</span> {periodo}
         </p>
-        <Table
-          tableName={'Números generados'}
-          tableCols={['Xn', 'Rn']}
-          tableRows={rowsData}
-        />
+        <Table tableCols={['Xn', 'Rn']} tableRows={rowsData} />
         <Pruebas />
       </div>
     </div>

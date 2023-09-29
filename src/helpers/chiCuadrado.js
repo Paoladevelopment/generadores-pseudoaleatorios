@@ -1,18 +1,9 @@
+import { generar_rangos, string_rangos } from './manejoRangos';
+
 const x2_criticos = [
   3.841, 5.991, 7.815, 9.488, 11.07, 12.592, 14.067, 15.507, 16.919, 18.307,
   19.675, 21.026, 22.362, 23.685, 24.996, 26.296, 27.587, 28.869, 30.144, 31.41,
 ];
-
-const generar_rangos = (n_rangos) => {
-  const rangos = [];
-  for (let i = 0; i < n_rangos; i++) {
-    const limiteInf = i / n_rangos;
-    const limiteSup = (i + 1) / n_rangos;
-    rangos.push({ limiteInf, limiteSup });
-  }
-
-  return rangos;
-};
 
 export const prueba_chiCuadrado = (datos, nroRangos) => {
   const nDatos = datos.length;
@@ -35,7 +26,7 @@ export const prueba_chiCuadrado = (datos, nroRangos) => {
   }
   const X2_critico = x2_criticos[rangos.length - 2];
   return {
-    rangos,
+    rangos: string_rangos(rangos),
     FO,
     FE,
     X2_calculado,
