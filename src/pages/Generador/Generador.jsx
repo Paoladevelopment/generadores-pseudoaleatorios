@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+
 import { InputData } from '../../components/InputData/InputData';
 import { CalculateContext } from '../../context/CalculateContext';
 import { Table } from '../../components/Table/Table';
@@ -10,6 +11,7 @@ export const Generador = () => {
   console.log(currentMethodResult);
   const { xn, rn, periodo } = currentMethodResult;
   const rowsData = rowsGeneration(xn, rn);
+
   return (
     <div className='py-4'>
       <div className='w-9/10 h-9/10 bg-gray-200 mx-auto shadow md:border rounded-xl md:w-4/5 p-4 md:p-8'>
@@ -20,7 +22,7 @@ export const Generador = () => {
         <p className='text-xl text-center mb-4'>
           <span className='text-sky-500 font-bold '>Periodo:</span> {periodo}
         </p>
-        <Table tableCols={['Xn', 'Rn']} tableRows={rowsData} />
+        <Table tableCols={['Xn', 'Rn']} tableRows={rowsData} isGenerator/>
         <Pruebas />
       </div>
     </div>
