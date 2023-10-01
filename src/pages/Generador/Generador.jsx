@@ -22,7 +22,7 @@ export const Generador = () => {
         <p className='text-xl text-center mb-4'>
           <span className='text-sky-500 font-bold '>Periodo:</span> {periodo}
         </p>
-        <Table tableCols={['Xn', 'Rn']} tableRows={rowsData} isGenerator/>
+        <Table tableCols={['Xn', 'Rn']} tableRows={rowsData} isPagination/>
         <Pruebas />
       </div>
     </div>

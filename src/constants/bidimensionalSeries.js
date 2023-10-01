@@ -1,0 +1,3 @@
+const NUMBER_OF_INTERVALS = 5;
+
+export default NUMBER_OF_INTERVALS;
