@@ -1,13 +1,12 @@
 const LCG_not_nDatos = (x0, a, c, m) => {
-  const xn = [x0];
-  const rn = [x0 / m];
-  let x_index = 0;
+  let xn_actual = x0;
+  const xn = [];
+  const rn = [];
   while (true) {
-    let next_value = (a * xn[x_index] + c) % m;
-    if (xn.includes(next_value)) break;
-    xn.push(next_value);
-    rn.push(next_value / m);
-    x_index++;
+    xn_actual = (a * xn_actual + c) % m;
+    if (xn.includes(xn_actual)) break;
+    xn.push(xn_actual);
+    rn.push(xn_actual / m);
   }
   return {
     xn,
@@ -17,18 +16,19 @@ const LCG_not_nDatos = (x0, a, c, m) => {
 };
 
 const LCG_nDatos = (x0, a, c, m, n) => {
-  const xn = [x0];
-  const rn = [x0 / m];
+  let xn_actual = x0;
+  const xn = [];
+  const rn = [];
   let seRepite = false;
   let periodo = null;
-  for (let x_index = 0; x_index < n - 1; x_index++) {
-    let next_value = (a * xn[x_index] + c) % m;
-    if (xn.includes(next_value) && !seRepite) {
+  for (let x_index = 0; x_index < n; x_index++) {
+    xn_actual = (a * xn_actual + c) % m;
+    if (xn.includes(xn_actual) && !seRepite) {
       periodo = xn.length;
       seRepite = true;
     }
-    xn.push(next_value);
-    rn.push(next_value / m);
+    xn.push(xn_actual);
+    rn.push(xn_actual / m);
   }
 
   return {

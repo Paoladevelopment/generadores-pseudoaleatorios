@@ -3,22 +3,13 @@ const valorPokerCritico = {
   5: 12.592,
 };
 
-const probabilidadK3 = [0.01, 0.27, 0.72];
+const probabilidadK3 = [0.72, 0.27, 0.01];
 
 const categoriaK3 = [
   'Todos diferentes (TD)',
   'Exactamente 1 par (1P)',
   'Tercia (T)',
 ];
-
-const transformTo3 = (datos) => {
-  const transformedData = [];
-  for (const dato of datos) {
-    const roundedDato = Number(dato.toFixed(3));
-    transformedData.push(roundedDato);
-  }
-  return transformedData;
-};
 
 const getFEfor3 = (nDatos) => {
   const FE = [];
@@ -79,10 +70,8 @@ const getX2calculado = (FE, FO) => {
 };
 
 const pruebaPoker3 = (datos) => {
-  const transformedData = transformTo3(datos);
-  console.log(transformedData);
   const FE = getFEfor3(datos.length);
-  const FO = getFOfor3(transformedData);
+  const FO = getFOfor3(datos);
   const [X2_calculado, X2_calculado_sum] = getX2calculado(FE, FO);
   return {
     categorias: categoriaK3,
