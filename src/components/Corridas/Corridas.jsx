@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import { useContext } from "react";
 
 import { CalculateContext } from "../../context/CalculateContext";
@@ -8,7 +7,7 @@ import { Table } from "../Table/Table";
 import prueba_independencia_corridas from "../../helpers/corridas";
 import { rowsGeneration } from "../../helpers/formatTable";
 
-import './Corridas.css';
+import "./Corridas.css";
 
 export const Corridas = () => {
   const { currentMethodResult } = useContext(CalculateContext);
@@ -16,14 +15,25 @@ export const Corridas = () => {
   const { n1, n2, cantCorridas, media, varianza, z, zObs, signos, conclusion } =
     corridasResult;
   const corridasShown = ["*", ...signos];
-  const newZTable = `[${z[0]}-${z[1]}}]`
+  const newZTable = `[${z[0]}-${z[1]}}]`;
   const rowDataCorridas = rowsGeneration(corridasShown);
-  const rowData = rowsGeneration([n1], [n2], [media], [varianza], [zObs], [newZTable]);
+  const rowData = rowsGeneration(
+    [n1],
+    [n2],
+    [media],
+    [varianza],
+    [zObs],
+    [newZTable]
+  );
   return (
     <section>
       {corridasResult && (
         <>
-          <Table tableCols={["Corridas"]} tableRows={rowDataCorridas} />
+          <Table
+            tableCols={["Corridas"]}
+            tableRows={rowDataCorridas}
+            isPagination
+          />
           <div className="table-information__corridas">
             <Table
               tableCols={["n1", "n2", "Media", "Varianza", "Zobs", "Z"]}
@@ -43,8 +53,4 @@ export const Corridas = () => {
       )}
     </section>
   );
-};
-
-Corridas.propTypes = {
-  rnData: PropTypes.array.isRequired,
 };

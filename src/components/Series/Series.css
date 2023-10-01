@@ -1,0 +1,16 @@
+.series-table__result {
+  & tbody {
+    & tr {
+      & td:first-child {
+        background-color: rgb(2 132 199 / var(--tw-bg-opacity));
+        color: white;
+      }
+    }
+  }
+}
+
+.series-table__result--informataion {
+  & section {
+    height: auto;
+  }
+}
