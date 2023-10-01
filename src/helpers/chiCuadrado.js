@@ -12,7 +12,7 @@ export const prueba_chiCuadrado = (datos, nroRangos) => {
   const FO = rangos.map((rango) => {
     let contador = 0;
     for (let dato of datos) {
-      if (dato >= rango.limiteInf && dato < rango.limiteSup) contador++;
+      if (dato >= rango.limiteInf && dato < rango.limiteSup) contador += 1;
     }
     return contador;
   });
