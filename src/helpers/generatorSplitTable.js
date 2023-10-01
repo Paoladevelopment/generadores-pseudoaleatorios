@@ -2,7 +2,7 @@ import { RANGE_GROUPS } from "../constants/generatorRange";
 
 const splitRowData = (rowData) => {
   const dataAmount = rowData.length;
-  if (dataAmount <= RANGE_GROUPS) return rowData;
+  if (dataAmount <= RANGE_GROUPS) return [rowData];
   const newPairs = [];
   for (let i = 0; i < dataAmount; i += RANGE_GROUPS) {
     let group;
