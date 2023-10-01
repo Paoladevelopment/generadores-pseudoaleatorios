@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { useContext } from 'react';
+import { useContext } from 'react';
 
 import { CalculateContext } from '../../context/CalculateContext';
 

@@ -5,7 +5,7 @@ import splitRowData from "../../helpers/generatorSplitTable";
 
 import "./Table.css";
 
-export const Table = ({ tableCols, tableRows, isGenerator }) => {
+export const Table = ({ tableCols, tableRows, isPagination }) => {
   const [shownResultIndex, setShownResultIndex] = useState(0);
 
   const allShownResults = useRef([]);
@@ -33,7 +33,7 @@ export const Table = ({ tableCols, tableRows, isGenerator }) => {
   };
 
   const isValidArray =
-    isGenerator &&
+    isPagination &&
     !allShownResults.current?.includes(NaN) &&
     Array.isArray(allShownResults.current) &&
     allShownResults.current.length > 0;
@@ -55,7 +55,7 @@ export const Table = ({ tableCols, tableRows, isGenerator }) => {
           </tr>
         </thead>
         <tbody className="bg-gray-100">
-          {!isGenerator &&
+          {!isPagination &&
             tableRows &&
             tableRows.map((rowColumn, key) => (
               <tr key={key} className="border-b dark:border-neutral-500">
@@ -108,5 +108,5 @@ export const Table = ({ tableCols, tableRows, isGenerator }) => {
 Table.propTypes = {
   tableCols: PropTypes.arrayOf(PropTypes.string).isRequired,
   tableRows: PropTypes.array.isRequired,
-  isGenerator: PropTypes.bool,
+  isPagination: PropTypes.bool,
 };
