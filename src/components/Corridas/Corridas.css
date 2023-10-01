@@ -1,0 +1,5 @@
+.table-information__corridas {
+    & section {
+        height: auto;
+    }
+}
