@@ -7,12 +7,13 @@ import { CalculateContext } from '../../context/CalculateContext';
 
 export const InputData = ({ page }) => {
   const navigation = useNavigate();
-  const { setCurrentValues, currentValues, setCurrentMethodResult } =
+  const { setCurrentValues, currentValues, setCurrentMethodResult,setIsJavaScriptGenerator } =
     useContext(CalculateContext);
   const { register, handleSubmit } = useForm({
     defaultValues: currentValues,
   });
   const onSubmit = (data) => {
+    setIsJavaScriptGenerator(false);
     console.log(data);
     setCurrentValues({
       x0: Number(data.x0),

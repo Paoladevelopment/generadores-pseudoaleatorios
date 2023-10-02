@@ -1,12 +1,12 @@
-import { createContext, useMemo, useState } from 'react';
+import { createContext, useMemo, useState } from "react";
 
 export const CalculateContext = createContext();
 
 const initialData = {
-  x0: '',
-  a: '',
-  c: '',
-  m: '',
+  x0: "",
+  a: "",
+  c: "",
+  m: "",
 };
 
 const initialSol = {
@@ -18,6 +18,7 @@ export const CalculateProvider = ({ children }) => {
   const [currentMethodResult, setCurrentMethodResult] = useState(initialSol);
   const [currentValues, setCurrentValues] = useState(initialData);
   const [selectedTests, setSelectedTests] = useState([]);
+  const [isJavaScriptGenerator, setIsJavaScriptGenerator] = useState(false);
 
   const values = useMemo(
     () => ({
@@ -27,10 +28,14 @@ export const CalculateProvider = ({ children }) => {
       setCurrentValues,
       selectedTests,
       setSelectedTests,
+      isJavaScriptGenerator,
+      setIsJavaScriptGenerator,
     }),
     [
       currentMethodResult,
       setCurrentMethodResult,
+      isJavaScriptGenerator,
+      setIsJavaScriptGenerator,
       currentValues,
       setCurrentValues,
       selectedTests,
