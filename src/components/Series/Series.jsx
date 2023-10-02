@@ -25,7 +25,7 @@ export const Series = () => {
     suma,
   } = seriesResult;
   const intervalColumn = string_rangos(generar_rangos(NUMBER_OF_INTERVALS));
-  const fETable = Array(10).fill(fE);
+  const fETable = Array(5).fill(fE);
   const rowData = rowsGeneration(
     [...intervalColumn],
     matrizChiCuadrado[0],
