@@ -1,0 +1,3 @@
+const CORRIDAS_RANGE_TABLE = 250;
+
+export default CORRIDAS_RANGE_TABLE;

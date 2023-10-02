@@ -3,3 +3,21 @@
         height: auto;
     }
 }
+
+.corridas-information {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    overflow-x: hidden;
+    overflow-y: scroll;
+
+    height: 200px;
+
+    padding: 5px;
+    margin-bottom: 20px;
+    & p {
+        width: auto;
+        font-size: 20px;
+    }
+}

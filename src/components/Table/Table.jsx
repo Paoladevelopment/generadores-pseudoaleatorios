@@ -10,9 +10,9 @@ export const Table = ({ tableCols, tableRows, isPagination }) => {
 
   const allShownResults = useRef([]);
 
-  const splitedResults = splitRowData(tableRows);
+  const splitedResults = isPagination ? splitRowData(tableRows) : [];
 
-  allShownResults.current = splitedResults[shownResultIndex];
+  allShownResults.current = isPagination ? splitedResults[shownResultIndex] : [];
 
   const addMoreResults = () => {
     setShownResultIndex((prev) => {
