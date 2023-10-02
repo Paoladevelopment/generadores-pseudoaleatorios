@@ -25,6 +25,7 @@ export const Series = () => {
     suma,
   } = seriesResult;
   const intervalColumn = string_rangos(generar_rangos(NUMBER_OF_INTERVALS));
+  const fETable = Array(5).fill(fE);
   const rowData = rowsGeneration(
     [...intervalColumn],
     matrizChiCuadrado[0],
@@ -32,6 +33,14 @@ export const Series = () => {
     matrizChiCuadrado[2],
     matrizChiCuadrado[3],
     matrizChiCuadrado[4]
+  );
+  const rowDataFe = rowsGeneration(
+    [...intervalColumn],
+    fETable,
+    fETable,
+    fETable,
+    fETable,
+    fETable
   );
   const dataInformation = rowsGeneration(
     [fE],
@@ -45,6 +54,7 @@ export const Series = () => {
       {seriesResult && (
         <div className="series-table__result">
           <Table tableCols={["", ...intervalColumn]} tableRows={rowData} />
+          <Table tableCols={["", ...intervalColumn]} tableRows={rowDataFe} />
           <div className="series-table__result--informataion">
             <Table
               tableCols={["FE", "gl", "Probabilidad celda", "Clases"]}
