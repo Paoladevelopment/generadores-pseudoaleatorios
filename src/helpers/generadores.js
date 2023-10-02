@@ -39,7 +39,20 @@ const LCG_nDatos = (x0, a, c, m, n) => {
 };
 
 export const generador = (x0, a, c, m, n = 0) => {
-  if (a === 0) return { error: 'Se debe ingresar un valor de a mayor a 0' };
+  if (a === 0) return { error: "Se debe ingresar un valor de a mayor a 0" };
   if (n === 0) return LCG_not_nDatos(x0, a, c, m);
   return LCG_nDatos(x0, a, c, m, n);
+};
+
+export const randomGenerator = (n) => {
+  const xn = [];
+  for (let i = 0; i < n; i++) {
+    const randomNumber = Math.random();
+    xn.push(randomNumber);
+  }
+  const rn = xn;
+  return {
+    xn,
+    rn
+  };
 };
