@@ -18,7 +18,6 @@ export const Corridas = () => {
     corridasResult;
   const corridasShown = ["*", ...signos];
   const newZTable = `[${z[0]}-${z[1]}}]`;
-  // const rowDataCorridas = rowsGeneration(corridasShown);
   const rowData = rowsGeneration(
     [n1],
     [n2],
