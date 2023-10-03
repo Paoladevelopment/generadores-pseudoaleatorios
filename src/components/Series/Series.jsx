@@ -23,9 +23,17 @@ export const Series = () => {
     gl,
     matrizChiCuadrado,
     suma,
+    matriz,
   } = seriesResult;
   const intervalColumn = string_rangos(generar_rangos(NUMBER_OF_INTERVALS));
-  const fETable = Array(5).fill(fE);
+  const rowDataFe = rowsGeneration(
+    [...intervalColumn],
+    matriz[0],
+    matriz[1],
+    matriz[2],
+    matriz[3],
+    matriz[4]
+  );
   const rowData = rowsGeneration(
     [...intervalColumn],
     matrizChiCuadrado[0],
@@ -33,14 +41,6 @@ export const Series = () => {
     matrizChiCuadrado[2],
     matrizChiCuadrado[3],
     matrizChiCuadrado[4]
-  );
-  const rowDataFe = rowsGeneration(
-    [...intervalColumn],
-    fETable,
-    fETable,
-    fETable,
-    fETable,
-    fETable
   );
   const dataInformation = rowsGeneration(
     [fE],
