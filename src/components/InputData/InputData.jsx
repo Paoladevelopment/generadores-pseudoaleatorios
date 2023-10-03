@@ -7,8 +7,12 @@ import { CalculateContext } from '../../context/CalculateContext';
 
 export const InputData = ({ page }) => {
   const navigation = useNavigate();
-  const { setCurrentValues, currentValues, setCurrentMethodResult,setIsJavaScriptGenerator } =
-    useContext(CalculateContext);
+  const {
+    setCurrentValues,
+    currentValues,
+    setCurrentMethodResult,
+    setIsJavaScriptGenerator,
+  } = useContext(CalculateContext);
   const { register, handleSubmit } = useForm({
     defaultValues: currentValues,
   });
@@ -75,7 +79,7 @@ export const InputData = ({ page }) => {
             id='c'
             placeholder='Ingresa valor de c'
             min={0}
-            {...register('c', { required: true })}
+            {...register('c')}
           />
         </div>
 
