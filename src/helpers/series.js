@@ -85,6 +85,7 @@ function prueba_series(datos) {
 
   return {
     matrizChiCuadrado,
+    matriz,
     clases,
     intervalos,
     cellProbability,
